@@ -1,0 +1,35 @@
+<h2>Login</h2><br>    
+<div class="login">   
+    <p *ngIf="error_string!==''">
+        <span [ngStyle]="{'color':'red'}">*{{this.error_string}}</span>
+    </p>
+    <form [formGroup]="loginform" (ngSubmit)="onSubmit()"  class="form-style">
+        <label><b>User Type</b></label>    
+        <select  id="Utype" formControlName="usertype"  [ngClass]="{ 'is-invalid': submitted && f.usertype.errors }">
+            <option value="1">Admin</option>
+            <option value="2">Editor</option>
+        </select>
+        <div *ngIf="submitted && f.usertype.errors" class="invalid-feedback">
+            <div *ngIf="f.usertype.errors.required">User type is required</div> 
+          </div>
+        <br><br>   
+        <label><b>Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>    
+        <input type="text" name="Uname" id="Uname" formControlName="email" placeholder="Email"  autofocus [ngClass]="{ 'is-invalid': submitted && f.email.errors }">    
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email is invalid</div>
+          </div>
+       
+        <br><br>    
+        <label><b>Password</b>    
+        </label>    
+        <input type="Password" name="Pass" id="Pass" formControlName="password" placeholder="Password" autofocus [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.invalidPassword">Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+                letter and 1 number</div>
+        </div>   
+        <br><br>    
+        <button type="submit"  name="log" id="log" >Login</button> 
+    </form>     
+</div>

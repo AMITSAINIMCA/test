@@ -1,0 +1,33 @@
+<div class="dashboard"> 
+    <h3> Dashboard </h3>
+    <div class="right"><a href="javascript:void(0)" (click)="this.auth?.logout()"><h3> Logout</h3></a></div>
+   
+    <div class="center"><h4> User list</h4></div>
+    <table *ngIf="this.userLists?.length==0" width="100%">
+        <thead><tr><td>User not available</td></tr></thead>
+    </table>
+    <table *ngIf="this.userLists?.length>0" width="100%">
+        <thead>
+            <tr>
+                <td>Name</td> 
+                <td>Mobile Number</td>
+                <td>User type</td>
+                <td>Created At</td>
+                <td>View</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let list of userLists">
+                <td><a href="javascript:void(0)" routerLink="/user/{{list._id}}">{{list.first_name}}&nbsp;{{list.last_name}}</a> </td>
+                <td>{{list.country_code}}{{list.mobile}}</td>
+                <td>
+                        <span *ngIf="list.usertype==1">Admin</span>  
+                        <span *ngIf="list.usertype==2">Editor</span>  
+                        <span *ngIf="list.usertype==3">User</span>  
+                </td>
+                <td>{{list.createdAt| date:'medium'}}</td>
+                <td><a href="javascript:void(0)" routerLink="/user/{{list._id}}">Details</a></td>
+            </tr> 
+        </tbody>
+    </table>
+</div>

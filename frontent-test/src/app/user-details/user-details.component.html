@@ -1,0 +1,47 @@
+<div class="dashboard"> 
+    <div class="center_60"><h3> User Datails </h3></div>
+    <div>
+        <a *ngIf="this._isActiveUser?.usertype==1" href="javascript:void(0)" routerLink="/dashboard">Back</a>
+        <div class="right_60"><a href="javascript:void(0)" (click)="this.auth?.logout()"><h3> Logout</h3></a></div>
+       
+    </div>
+    <table *ngIf="this._isAvalable==false" width="100%">
+        <thead><tr><td>User not available</td></tr></thead>
+    </table>
+    <table *ngIf="this._isAvalable" width="50%">
+        <tbody>
+            <tr>
+                <td>User Id</td>
+                <td>{{this.user_details._id}}</td>
+            </tr> 
+            <tr>
+                <td>First Name</td>
+                <td>{{this.user_details.first_name}}</td>
+            </tr> 
+            <tr>
+                <td>Last Name</td>
+                <td>{{this.user_details.last_name}}</td>
+            </tr> 
+            <tr>
+                <td>Country code</td>
+                <td>{{this.user_details.country_code}}</td>
+            </tr> 
+            <tr>
+                <td>Mobile Number</td>
+                <td>{{this.user_details.mobile}}</td>
+            </tr>  
+            <tr>
+                <td>User type</td>
+                <td>
+                    <span *ngIf="this.user_details?.usertype==1">Admin</span>  
+                    <span *ngIf="this.user_details?.usertype==2">Editor</span>  
+                    <span *ngIf="this.user_details?.usertype==3">User</span> 
+                </td>
+            </tr> 
+            <tr>
+                <td>CreatedAt</td>
+                <td>{{this.user_details.createdAt|date:"medium"}}</td>
+            </tr>  
+        </tbody>
+    </table>
+</div>

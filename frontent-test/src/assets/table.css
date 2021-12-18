@@ -1,0 +1,34 @@
+.dashboard{ 
+    width: 100%;
+    height: 100%; 
+}
+.center{
+    text-align: center;
+}
+.center_60{
+  width: 50%;
+    text-align: center;
+}
+.right_60{
+  width: 50%;
+  text-align: right;
+}
+.right{
+  width: 95% ;
+  text-align: right;
+}
+td,th{
+    padding-right:100px;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-left:10px;
+    text-align:left;
+    font-family:verdana;
+  }
+  th{
+    background-color:#23463f;
+  }
+  table,td,th,tr{
+    border:2px solid #23463f;
+    border-collapse:collapse;
+  }

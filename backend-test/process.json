@@ -1,0 +1,7 @@
+{
+    "name": "Test-backend",
+    "script": "bin/www",
+    "env": {
+        "NODE_ENV": "production"
+    }
+}
